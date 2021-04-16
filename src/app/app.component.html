@@ -1,0 +1,71 @@
+
+<input type="file" accept="json" style="display: none;" #fileSourceUpload (change)="onSelected($event,'source')">
+<input type="file"  accept="json" style="display: none;" #fileTargetUpload (change)="onSelected($event,'target')">
+
+<div class="container">
+      <br>
+      <p class="text-center">Json Mapper</p>
+      <hr>
+      <p-toast></p-toast>
+
+      <div class="row">
+            <aside class="col-sm-6">
+                  <div class="card">
+                        <header class="card-header">
+                              <a href="#" data-toggle="collapse" data-target="#collapse11" aria-expanded="true"
+                                    class="">
+                                    <i class="icon-action fa fa-chevron-down"></i>
+                                    <span class="title">Source Json</span>
+                              </a>
+                        </header>
+                        <div class="collapse show" id="collapse11" style="">
+                              <article class="card-body">
+                                    <form class="mb15">
+                                          <div class="input-group">
+                                                <button class="form-control btn btn-primary"
+                                                      (click)="fileSourceUpload.click()" type="button">Upload File
+                                                </button>
+
+                                          </div>
+                                    </form>
+                                    <p-tree [value]="files1"  selectionMode="single" [(selection)]="selectedSourceNode"
+                                    (onNodeSelect)="nodeSourceSelect($event)" (onNodeUnselect)="nodeSourceUnselect($event)"></p-tree>
+                              </article> <!-- card-body.// -->
+                        </div> <!-- collapse .// -->
+                  </div> <!-- card.// -->
+            </aside> <!-- col.// -->
+            <aside class="col-sm-6">
+
+                  <div class="card">
+                        <header class="card-header">
+                              <a href="#" data-toggle="collapse" data-target="#collapse11" aria-expanded="true"
+                                    class="">
+                                    <i class="icon-action fa fa-chevron-down"></i>
+                                    <span class="title">Target Json</span>
+                              </a>
+                        </header>
+                        <div class="collapse show" id="collapse11" style="">
+                              <article class="card-body">
+                                    <form class="mb15">
+                                          <div class="input-group">
+                                                <button class="form-control btn btn-primary"
+                                                      (click)="fileTargetUpload.click()" type="button">Upload File
+                                                </button>
+                                          </div>
+                                    </form>
+
+                                    <p-tree [value]="files2"  selectionMode="single" [(selection)]="selectedTargetNode"
+                                    (onNodeSelect)="nodeTargetSelect($event)" (onNodeUnselect)="nodeTargetUnselect($event)"></p-tree>
+
+                              </article> <!-- card-body.// -->
+                        </div> <!-- collapse .// -->
+                  </div> <!-- card.// -->
+            </aside> <!-- col.// -->
+      </div>
+      <div style="text-align: center;">
+        <button class="btn btn-primary btn-flat" (click)="mapValue()">Map Value </button>
+      </div>
+
+
+      
+</div>
